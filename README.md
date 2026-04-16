@@ -1,37 +1,82 @@
 # FoodSpace
 
-FoodSpace là đồ án website mạng xã hội review địa điểm ăn uống được triển khai theo **PHP thuần OOP + MVC + Service Layer**, **MySQL**, **Bootstrap 5**, **AJAX + JSON**, phù hợp chạy trên **Apache / XAMPP / WAMP**.
+FoodSpace là đồ án website mạng xã hội review địa điểm ăn uống, được xây dựng theo kiến trúc **PHP thuần OOP + MVC + Service Layer**, sử dụng **MySQL**, **Bootstrap 5** và **AJAX + JSON**.
 
-## Stack
+Dự án được phát triển với mục tiêu mô phỏng một nền tảng social review hiện đại, nơi người dùng có thể khám phá địa điểm ăn uống, viết review, bình luận, like, bookmark, follow người dùng khác và nhận thông báo tương tác.
+
+---
+
+## Công nghệ sử dụng
+
 - PHP 8.2+
-- MySQL 8+
-- Apache (XAMPP/WAMP)
+- MySQL / MariaDB
+- Apache (XAMPP / WAMP / Laragon / Hosting hỗ trợ PHP)
 - PDO + Prepared Statements
 - Bootstrap 5 + Bootstrap Icons
 - AJAX (Fetch API) + JSON
 
-## Branding
-- **Logo text style:** FoodSpace với icon ghim bản đồ màu cam đỏ và chữ đậm bo mềm.
-- **Tagline:** _Khám phá món ngon, chia sẻ trải nghiệm thật._
-- **Bảng màu:** cam đỏ `#ff5a3d`, tím accent `#7c3aed`, nền sáng `#f6f8fb`, chữ `#0f172a`.
-- **UI style:** social feed hiện đại, bo góc lớn, shadow nhẹ, spacing thoáng, card-based layout.
+---
 
-## Import database
-Import file: `database/sql/foodspace.sql`
+## Kiến trúc hệ thống
 
-## Demo accounts
-- Admin: `admin@foodspace.local` / `admin123`
-- User: `mai@foodspace.local` / `user123`
+FoodSpace được tổ chức theo mô hình:
 
-## Chạy nhanh
-1. Chép thư mục `FoodSpace` vào `htdocs`.
-2. Import `database/sql/foodspace.sql` bằng phpMyAdmin.
-3. Nếu cần, sửa `config/database.php` và `config/app.php`.
-4. Truy cập `http://localhost/FoodSpace/public`.
+- **MVC**: tách rõ Model - View - Controller
+- **Service Layer**: xử lý nghiệp vụ riêng khỏi controller
+- **Helpers / Middlewares**: hỗ trợ auth, CSRF, validation, flash message, role check
+- **AJAX endpoints**: phục vụ các chức năng tương tác như like, comment, bookmark, follow, report, notifications
 
-## Tài liệu đầy đủ
-Xem: `FoodSpace_Documentation.md`
+---
 
-## Upload image
-- Ảnh review và ảnh địa điểm được tải trực tiếp lên `public/uploads/reviews` và `public/uploads/places`.
-- Nếu dùng XAMPP/WAMP, hãy bảo đảm thư mục `public/uploads` có quyền ghi.
+## Chức năng chính
+
+### Guest
+- Xem trang chủ
+- Xem danh sách địa điểm
+- Tìm kiếm và lọc địa điểm
+- Xem chi tiết địa điểm
+- Xem review và xếp hạng
+
+### User
+- Đăng ký / đăng nhập / đăng xuất
+- Viết, sửa, xóa review
+- Bình luận review
+- Like review
+- Bookmark địa điểm
+- Tạo collection
+- Thêm / xóa địa điểm trong collection
+- Follow / unfollow người dùng
+- Xem following feed
+- Nhận notifications
+- Report review
+
+### Admin
+- Quản lý category
+- Quản lý place
+- Quản lý user
+- Phân quyền user / admin
+- Quản lý review và report
+- Ẩn / xóa nội dung vi phạm
+
+---
+
+## Cấu trúc thư mục chính
+
+```text
+FoodSpace/
+├── bootstrap.php
+├── index.php
+├── .htaccess
+├── config/
+├── controllers/
+├── core/
+├── helpers/
+├── middlewares/
+├── models/
+├── routes/
+├── services/
+├── views/
+├── assets/
+├── uploads/
+├── database/
+└── storage/
