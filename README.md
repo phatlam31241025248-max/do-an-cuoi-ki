@@ -80,3 +80,13 @@ FoodSpace/
 ├── uploads/
 ├── database/
 └── storage/
+## Phân công thành viên
+
+**Nhóm trưởng: Phát**
+
+| STT | Thành viên | Vai trò | Nội dung phụ trách |
+|-----|------------|---------|--------------------|
+| 1 | **Phát** | **Nhóm trưởng** | Core, Authentication, RBAC |
+| 2 | Ngọc | Thành viên | Place, Category, Search, Place UI |
+| 3 | Khoa | Thành viên | Review, Comment, Like, Report |
+| 4 | Bảo | Thành viên | Bookmark, Collection, Follow, Notification, Admin Dashboard |
